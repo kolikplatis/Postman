@@ -95,7 +95,6 @@
 							"\r",
 							"//10. Проверить, что salary в ответе равно salary s request (salary забрать из request.)\r",
 							"let reqSalary = +pm.request.body.formdata.get(\"salary\");\r",
-							"pm.globals.set(\"variable_key\", \"variable_value\");\r",
 							"pm.test(\"Check salary in the request and response\", function () {\r",
 							"    pm.expect(jsonData.salary).to.eql(reqSalary);\r",
 							"});\r",
@@ -495,6 +494,10 @@
 							"});\r",
 							"\r",
 							"// 22. ***Написать цикл который выведет в консоль по порядку элементы списка из параметра person\r",
+							"let jsonPerson = jsonData.person.u_name;\r",
+							"for (let i = 0; i<jsonPerson.length; i++) {\r",
+							"    console.log(jsonPerson[i]);\r",
+							"};\r",
 							""
 						],
 						"type": "text/javascript",
