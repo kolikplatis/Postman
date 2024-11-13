@@ -129,7 +129,7 @@ Resp.
         });
 
         // 3) Проверить, что значение поля name = значению переменной name из окружения
-        let nameEnv = pm.environment.get("nameHW2");
+        let nameEnv = pm.environment.get("nameHW");
         pm.test ("Check name", function () {
             pm.expect(jsonData.name).to.eql(nameEnv);
         });

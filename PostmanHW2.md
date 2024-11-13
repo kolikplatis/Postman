@@ -184,22 +184,22 @@ http://162.55.220.72:5005/object_info_4
         });
 
         // 15. Создать в окружении переменную name
-        pm.environment.set("nameHW2", jsonData.name);
+        pm.environment.set("nameHW", jsonData.name);
 
         // 16. Создать в окружении переменную age
-        pm.environment.set("ageHW2", jsonData.age);
+        pm.environment.set("ageHW", jsonData.age);
 
         // 17. Создать в окружении переменную salary
-        pm.environment.set("salaryHW2", jsonData.salary);
+        pm.environment.set("salaryHW", jsonData.salary);
 
         // 18. Передать в окружение переменную name
-        pm.environment.set("nameHW2", jsonData.name);
+        pm.environment.set("nameHW", jsonData.name);
 
         // 19. Передать в окружение переменную age
-        pm.environment.set("ageHW2", jsonData.age);
+        pm.environment.set("ageHW", jsonData.age);
 
         // 20. Передать в окружение переменную salary
-        pm.environment.set("salaryHW2", jsonData.salary[0]);
+        pm.environment.set("salaryHW", jsonData.salary[0]);
 
         // 21. Написать цикл который выведет в консоль по порядку элементы списка из параметра salary.
         for (let i = 0; i<3; i++) {
