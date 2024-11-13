@@ -1,4 +1,5 @@
 http://162.55.220.72:5005/first  
+        
         //2. Статус код 200
         pm.test("Status code is 200", function () {
             pm.response.to.have.status(200);
@@ -9,7 +10,8 @@ http://162.55.220.72:5005/first
             pm.response.to.have.body("This is the first responce from server!ss");
         });
 ---
-http://162.55.220.72:5005/user_info_3  
+http://162.55.220.72:5005/user_info_3    
+        
         //2. Статус код 200
         pm.test("Status code is 200", function () {
             pm.response.to.have.status(200);
@@ -66,7 +68,8 @@ http://162.55.220.72:5005/user_info_3
         });
 ---
 
-http://162.55.220.72:5005/object_info_3
+http://162.55.220.72:5005/object_info_3  
+        
         //2. Статус код 200
         pm.test("Status code is 200", function () {
             pm.response.to.have.status(200);
@@ -120,7 +123,8 @@ http://162.55.220.72:5005/object_info_3
         });
 ---
 
-http://162.55.220.72:5005/object_info_4
+http://162.55.220.72:5005/object_info_4  
+        
         // 2. Статус код 200
         pm.test("Status code is 200", function () {
             pm.response.to.have.status(200);
@@ -202,7 +206,8 @@ http://162.55.220.72:5005/object_info_4
             console.log(jsonData.salary[i]);
         };
 ---
-http://162.55.220.72:5005/user_info_2
+http://162.55.220.72:5005/user_info_2  
+        
         // 5. Статус код 200
         pm.test("Status code is 200", function () {
             pm.response.to.have.status(200);
