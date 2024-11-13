@@ -1,32 +1,80 @@
-1) Необходимо залогиниться
-POST http://162.55.220.72:5005/login
-login : str (кроме /)
-password : str
-Приходящий токен необходимо передать во все остальные запросы. Дальше все запросы требуют наличие токена.
+1) Необходимо залогиниться  
+POST http://162.55.220.72:5005/login  
+login : str (кроме /)  
+password : str  
+Приходящий токен необходимо передать во все остальные запросы. Дальше все запросы требуют наличие токена.  
 
         let jsonData = pm.response.json();
         pm.environment.set("token", jsonData.token);  
+        
 --- 
 
-2) http://162.55.220.72:5005/user_info
-req. (RAW JSON) POST
-age: int
-salary: int
-name: str
-auth_token
+2) http://162.55.220.72:5005/user_info  
+req. (RAW JSON) POST  
+age: int  
+salary: int  
+name: str  
+auth_token  
+
+resp.  
+{'start_qa_salary':salary,  
+ 'qa_salary_after_6_months': salary * 2,  
+ 'qa_salary_after_12_months': salary * 2.9,  
+ 'person': {'u_name':[user_name, salary, age],  
+                                'u_age':age,  
+                                'u_salary_1.5_year': salary * 4}  
+                                }  
+
+        // 1) Статус код 200
+        pm.test("Status code is 200", function () {
+            pm.response.to.have.status(200);
+        });
+
+        // 2) Проверка структуры json в ответе.
+        let jsonData = pm.response.json();
+        pm.test("Check schema", function () {
+            pm.expect(jsonData).to.have.all.keys("person", "qa_salary_after_12_months", "qa_salary_after_6_months", "start_qa_salary");
+            pm.expect(jsonData.person).to.have.all.keys("u_age", "u_name", "u_salary_1_5_year");
+        });
+
+        // 3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
+        let reqData = pm.request.body.raw; 
+        let data = JSON.parse(reqData);
+
+        let salaryIn1_5 = data.salary*4;
+        let respSalary1_5 = jsonData.person.u_salary_1_5_year;
+        pm.test ("Check u_salary_1_5_year = salary from request * 4", function () {
+            pm.expect(salaryIn1_5).to.eql(salaryIn1_5);
+        });
+
+        let salaryAft12 = data.salary*2.9;
+        let respSalary12 = jsonData.qa_salary_after_12_months;
+        pm.test ("Check qa_salary_after_12_months = salary from request * 2.9", function () {
+            pm.expect(respSalary12).to.eql(salaryAft12);
+        });
+
+        let salaryAft6 = data.salary*2;
+        let respSalary6 = jsonData.qa_salary_after_6_months;
+        pm.test ("Check qa_salary_after_6_months = salary from request * 2", function () {
+            pm.expect(respSalary6).to.eql(salaryAft6);
+        });
+
+        // 4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user
+        pm.environment.set("respSalary1_5", respSalary1_5);
+
 ---
 
-3) http://162.55.220.72:5005/new_data
-req. POST
-age: int
-salary: int
-name: str
-auth_token
+3) http://162.55.220.72:5005/new_data  
+req. POST  
+age: int  
+salary: int  
+name: str  
+auth_token  
 
-Resp.
-{'name':name,
-  'age': int(age),
-  'salary': [salary, str(salary*2), str(salary*3)]}  
+Resp.  
+{'name':name,  
+  'age': int(age),  
+  'salary': [salary, str(salary*2), str(salary*3)]}    
 
         // 1) Статус код 200
         pm.test("Status code is 200", function () {
@@ -62,18 +110,18 @@ Resp.
         });
 ---
 
-4) http://162.55.220.72:5005/test_pet_info
-req. POST
-age: int
-weight: int
-name: str
-auth_token
+4) http://162.55.220.72:5005/test_pet_info  
+req. POST  
+age: int  
+weight: int  
+name: str  
+auth_token  
 
-Resp.
-{'name': name,
- 'age': age,
- 'daily_food':weight * 0.012,
- 'daily_sleep': weight * 2.5}
+Resp.  
+{'name': name,  
+ 'age': age,  
+ 'daily_food':weight * 0.012,  
+ 'daily_sleep': weight * 2.5}  
 
         // 1) Статус код 200
         pm.test("Status code is 200", function () {
