@@ -28,9 +28,16 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/first\n",
 					"protocol": "http",
@@ -329,13 +336,13 @@
 							"});\r",
 							"\r",
 							"// 15. Создать в окружении переменную name\r",
-							"pm.environment.set(\"nameHW\", jsonData.name);\r",
+							"pm.environment.set(\"nameHW\");\r",
 							"\r",
 							"// 16. Создать в окружении переменную age\r",
-							"pm.environment.set(\"ageHW\", jsonData.age);\r",
+							"pm.environment.set(\"ageHW\");\r",
 							"\r",
 							"// 17. Создать в окружении переменную salary\r",
-							"pm.environment.set(\"salaryHW\", jsonData.salary);\r",
+							"pm.environment.set(\"salaryHW\");\r",
 							"\r",
 							"// 18. Передать в окружение переменную name\r",
 							"pm.environment.set(\"nameHW\", jsonData.name);\r",

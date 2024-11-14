@@ -27,10 +27,21 @@
 				"header": [],
 				"body": {
 					"mode": "formdata",
-					"formdata": []
+					"formdata": [
+						{
+							"key": "login",
+							"value": "kolikplatis",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Oleg",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/login?login=kolikplatis&password=oleg",
+					"raw": "http://162.55.220.72:5005/login",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -41,16 +52,6 @@
 					"port": "5005",
 					"path": [
 						"login"
-					],
-					"query": [
-						{
-							"key": "login",
-							"value": "kolikplatis"
-						},
-						{
-							"key": "password",
-							"value": "oleg"
-						}
 					]
 				}
 			},
@@ -385,103 +386,6 @@
 					"port": "5005",
 					"path": [
 						"get_test_user\n"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/currency",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// 1) Можете взять любой объект из присланного списка, используйте js random.\r",
-							"// В объекте возьмите Cur_ID и передать через окружение в следующий запрос.\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "auth_token",
-							"value": "sfsd",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://162.55.220.72:5005/currency",
-					"protocol": "http",
-					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
-					],
-					"port": "5005",
-					"path": [
-						"currency"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/curr_byn",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"// 1) Статус код 200\r",
-							"// 2) Проверка структуры json в ответе.\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "auth_token",
-							"value": "{{token}}",
-							"type": "text"
-						},
-						{
-							"key": "curr_code",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://162.55.220.72:5005/curr_byn",
-					"protocol": "http",
-					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
-					],
-					"port": "5005",
-					"path": [
-						"curr_byn"
 					]
 				}
 			},

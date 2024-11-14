@@ -184,13 +184,13 @@ http://162.55.220.72:5005/object_info_4
         });
 
         // 15. Создать в окружении переменную name
-        pm.environment.set("nameHW", jsonData.name);
+        pm.environment.set("nameHW");
 
         // 16. Создать в окружении переменную age
-        pm.environment.set("ageHW", jsonData.age);
+        pm.environment.set("ageHW");
 
         // 17. Создать в окружении переменную salary
-        pm.environment.set("salaryHW", jsonData.salary);
+        pm.environment.set("salaryHW");
 
         // 18. Передать в окружение переменную name
         pm.environment.set("nameHW", jsonData.name);
