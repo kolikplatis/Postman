@@ -8,7 +8,6 @@ password : str
         pm.environment.set("token", jsonData.token);  
         
 --- 
-
 2) http://162.55.220.72:5005/user_info  
 req. (RAW JSON) POST  
 age: int  
