@@ -18,12 +18,12 @@ auth_token
 
 resp.  
 {'start_qa_salary':salary,  
- 'qa_salary_after_6_months': salary * 2,  
- 'qa_salary_after_12_months': salary * 2.9,  
- 'person': {'u_name':[user_name, salary, age],  
-                                'u_age':age,  
-                                'u_salary_1.5_year': salary * 4}  
-                                }  
+'qa_salary_after_6_months': salary * 2,  
+'qa_salary_after_12_months': salary * 2.9,  
+'person': {'u_name':[user_name, salary, age],  
+           'u_age':age,  
+           'u_salary_1.5_year': salary * 4}  
+          }  
 
         // 1) Статус код 200
         pm.test("Status code is 200", function () {
