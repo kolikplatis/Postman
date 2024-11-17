@@ -70,10 +70,10 @@ salary: int
 name: str  
 auth_token  
 
-Resp.  
-{'name':name,  
-  'age': int(age),  
-  'salary': [salary, str(salary*2), str(salary*3)]}    
+    resp.  
+    {'name':name,  
+    'age': int(age),  
+    'salary': [salary, str(salary*2), str(salary*3)]}    
 
         // 1) Статус код 200
         pm.test("Status code is 200", function () {
@@ -116,11 +116,11 @@ weight: int
 name: str  
 auth_token  
 
-Resp.  
-{'name': name,  
- 'age': age,  
- 'daily_food':weight * 0.012,  
- 'daily_sleep': weight * 2.5}  
+    resp.  
+    {'name': name,  
+    'age': age,  
+    'daily_food':weight * 0.012,  
+    'daily_sleep': weight * 2.5}  
 
         // 1) Статус код 200
         pm.test("Status code is 200", function () {
@@ -153,13 +153,13 @@ salary: int
 name: str
 auth_token
 
-Resp.
-{'name': name,
- 'age':age,
- 'salary': salary,
- 'family':{'children':[['Alex', 24],['Kate', 12]],
- 'u_salary_1.5_year': salary * 4}
-  }
+    resp.
+    {'name': name,
+    'age':age,
+    'salary': salary,
+    'family':{'children':[['Alex', 24],['Kate', 12]],
+    'u_salary_1.5_year': salary * 4}
+    }
 
         // 1) Статус код 200
         pm.test("Status code is 200", function () {
